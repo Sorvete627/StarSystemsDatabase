@@ -1,1 +1,1 @@
-This directory contains all images used in this project.
+This directory contains two versions of the ERD: one with business rules and one without.
