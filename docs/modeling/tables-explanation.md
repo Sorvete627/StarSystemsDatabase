@@ -23,8 +23,8 @@ To define a planet as an entity in its own right, possessing unique attributes a
 
 * **Relationships:**
 
-  - Planet (O:N) - Atmosphere (0:N)
-  - Planet (O:N) - Moon (1:1)
+  - Planet (0:N) - Atmosphere (0:N)
+  - Planet (0:N) - Moon (1:1)
   - Planet (0:N) - Star (0:N)
   - Planet (1:1) - BodyType (0:N)
   - Planet (0:N) - Ring (0:N)
