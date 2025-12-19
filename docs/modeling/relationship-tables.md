@@ -1,4 +1,4 @@
-## us English
+## English
 
 ### Relationship Tables
 
@@ -10,7 +10,7 @@ During the database modeling, a high variation in attributes combination for eac
 
 Attributes that did not have a N:N relationship with any table were not changed during the normalization steps.
 
-## br Português
+## Português (Brasil)
 
 ### Tabelas Relacionamento
 
