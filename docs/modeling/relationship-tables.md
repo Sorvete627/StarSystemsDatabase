@@ -7,6 +7,7 @@ During the database modeling, a high variation in attributes combination for eac
  - The rings relationship, allowing each celestial body to have more than one ring, each ring with distict composition.
  - The star relationship, allowing a body to orbit more than one star, not limiting it to simplicity.
  - The brown dwarf relationship, allowing celestial bodies to orbit it.
+
 Attributes that did not have a N:N relationship with any table were not changed during the normalization steps.
 
 ## pt Português
@@ -18,4 +19,5 @@ Durante a modelagem do banco de dados foi procurado permitir grande varição da
   - A de anéis, permitindo que cada corpo possua vários anéis e cada um com composições diferentes.
   - A de estrela, permitindo que um corpo orbite mais de uma estrela, não se limitando na simplicidade.
   - A de anã marrom, permitindo que anãs marroms possuam corpos a orbitando.
+
 Atributos que não exerciam um relacionamento N:N com alguma tabela não sofreram alterações durante as etapas de normalização.
