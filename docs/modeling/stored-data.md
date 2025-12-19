@@ -1,4 +1,4 @@
-## us English
+## English
 
 ### What is stored in the database
 
@@ -7,7 +7,7 @@ The data source is a space simulator called Elite Dangerous, which is why some e
 
 ---
 
-## pt Português
+## Português (Brasil)
 
 ### O que está armazenado no banco de dados
 
