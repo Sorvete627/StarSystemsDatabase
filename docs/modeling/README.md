@@ -4,6 +4,6 @@ In this repository is all explanation about the modeling process of the database
 
 ---
 
-## pt Português
+## br Português
 
 Neste repositório está toda a explicação do processo de modelagem do banco de dados, por exemplo, o que eu desejo armazenar nele, regras de negócio e todo o relacionamento entre as suas tabelas.
