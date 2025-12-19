@@ -1,4 +1,4 @@
-## us English
+## English
 
 ### Business Rules
 
@@ -11,7 +11,7 @@
 
 ---
 
-## br Português
+## Português (Brasil)
 
 ### Regras de Negócio
 
