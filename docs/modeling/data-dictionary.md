@@ -1,33 +1,36 @@
 ## Table: Planet
 
-| Column        | Type          | Description |
-|---------------|---------------|-------------|
-| PlanetID    | INT             | Unique planet identifier                   |
-| PlanetName  | VARCHAR(100)    | Planet's name                              |
-| IdType      | INT             | FK for planet type                         |
-| Landable    | BOOL            | Define if a planet is landable             |
-| Gravity     | DECIMAL(3,2)    | Planet's gravity compared to Earth         |
-| Geo         | BOOL            | Define if a planet has geological activity |
-| Bio         | BOOL            | Define if a planet has biological activity |
+| Column       | Type         | Description                                 |
+|--------------|--------------|---------------------------------------------|
+| (PK)PlanetID | INT          | Unique planet identifier                    |
+| PlanetName   | VARCHAR(100) | Planet's name                               |
+| (FK)IdType   | INT          | FK to define planet type                    |
+| Landable     | BOOL         | Defines if a planet is landable             |
+| Gravity      | DECIMAL(3,2) | Planet's gravity compared to Earth          |
+| Geo          | BOOL         | Defines if a planet has geological activity |
+| Bio          | BOOL         | Defines if a planet has biological activity |
 
 ## Table: Moon
 
-| Coluna        | Tipo          | Descrição |
-|--------------|--------------|-----------|
-| PlanetID     | INT          | Identificador único do planeta |
-| Name         | NVARCHAR(100)| Nome do planeta |
-| StarID       | INT          | FK para a estrela que orbita |
-| OrbitalPeriod| INT          | Período orbital em dias |
-
+| Column           | Type         | Description                                |
+|------------------|--------------|--------------------------------------------|
+| (PK)IdMoon       | INT          | Unique moon identifier                     |
+| MoonName         | VARCHAR(100) | Moon's name                                |
+| (FK)IdType       | INT          | FK to define moon type                     |
+| Gravity          | Gravity(3,2) | Moon's gravity compared to Earth           |
+| Landable         | BOOL         | Defines if a moons is landable             |
+| Geo              | BOOL         | Defines if a moon has geological activity  |
+| Bio              | BOOL         | Defines if a moon has biological activity  |
+| (FK)IdlPlanet    | INT          | FK to define wich planet a moon orbit      |
+| (FK)IdBrownDwarf | INT          | FK to define wich brown dwarf a moon orbit |
 
 ## Table: BrownDwarf
 
-| Coluna        | Tipo          | Descrição |
-|--------------|--------------|-----------|
-| PlanetID     | INT          | Identificador único do planeta |
-| Name         | NVARCHAR(100)| Nome do planeta |
-| StarID       | INT          | FK para a estrela que orbita |
-| OrbitalPeriod| INT          | Período orbital em dias |
+| Column           | Type | Description                                               |
+|------------------|------|-----------------------------------------------------------|
+| (PK)IdBrownDwarf | INT  | Unique brown dwarf identifier                             |
+| (FK)IdSystem     | INT  | FK to define wich system the brown dwarf is on            |
+| Primary          | BOOL | Defines if a brown dwarf is a primary star in it's system |
 
 
 ## Table: Ring
