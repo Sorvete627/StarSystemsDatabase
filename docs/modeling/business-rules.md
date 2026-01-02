@@ -8,6 +8,7 @@
 - A planet can only orbit two stars if both are from the same system. (TRIGGER necessary)
 - A planet can only orbit two brown dwarfs if both are from the same system. (TRIGGER necessary)
 - A brown dwarf can only orbit two stars if both are from the same system and the brown dwarf is not considered primary. (TRIGGER necessary)
+- A atmosphere element can not be present twice in the same planet. It would allow data redundancy and inconsistency. (Composite primary key necessary)
 
 ---
 
@@ -21,3 +22,4 @@
 - Um planeta só pode orbitar duas estrelas se ambas estiverem no mesmo sistema. (TRIGGER necessário)
 - Um planeta só pode orbitar mais de duas anãs marrons se ambas estiverem no mesmo sistema e ambas forem consideradas primárias. (TRIGGER necessário)
 - Uma anã marrom só pode orbitar duas estrelas se ambas estiverem no mesmo sistema e se a anã marrom não for considerada primária. (TRIGGER necessário)
+- Um elemento da atmosfera não pode se repetir no mesmo corpo. Isso permitiria duplicatas e inconsistência de dados. (Chave primária composta necessária)
