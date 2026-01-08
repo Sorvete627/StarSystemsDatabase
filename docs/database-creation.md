@@ -25,7 +25,7 @@ The automatic growth of files was defined as fixed values ​​instead of perce
 
 Any other parameters not specified in the code, such as collation and recovery model, were set to the default value of Microsoft SQL Server 2025.
 
-## Português
+## Português (Brasil)
 
 ### - Visão Geral
 
