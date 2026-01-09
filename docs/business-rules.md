@@ -4,7 +4,7 @@
 
 - A single moon can only orbit a single celestial body. (CHECK necessary)
 - A brown dwarf is not a planet, neither a star or moon.
-- A moon can only orbit a brown dwarf if it is not considered primary
+- A moon can only orbit a brown dwarf if it is not considered primary. (TRIGGER necessary)
 - A celestial body atmosphere can be composed by different elements, but the sum of the amount present of them can't be more than 100%. (CHECK necessary)
 - A planet can only orbit two stars if both are from the same system. (TRIGGER necessary)
 - A planet can only orbit two brown dwarfs if both are from the same system. (TRIGGER necessary)
