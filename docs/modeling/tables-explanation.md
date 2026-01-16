@@ -13,7 +13,7 @@ This file contains information according to the conventions used during database
 
 ## Tables
 
-### Planets
+### Planet
 
 * **Description:**
 Stores the planets that orbit a star or brown dwarf and their attributes.
@@ -59,7 +59,7 @@ To define each brown dwarf as unique and allow for the identification of a brown
   - BrownDwarf (0:N) - Planet (0:N)
   - BrownDwarf (0:N) - Moon (0:1)
   - BrownDwarf (0:N) - Ring (0:N)
-  - BrownDwarf (0:N) - System (0:N)
+  - BrownDwarf (0:N) - StarSystem (0:N)
   - BrownDwarf (0:N) - Star (0:N)
 
 ### Ring
@@ -86,7 +86,7 @@ To allow all bodies to have something to orbit, instead of just being "loose" in
 
 * **Relationships:**
 
-  - Star (1:1) - System (0:N)
+  - Star (1:1) - StarSystem (0:N)
   - Star (0:N) - Planet (0:N)
   - Star (0:N) - BrownDwarf (0:N)
   - Star (1:1) - StarType (0:N)
@@ -129,7 +129,7 @@ To allow even more differentiation between each planet and moon, for example: "m
   - BodyType (0:N) - Planet (1:1)
   - BodyType (0:N) - Moon (1:1)
  
-### System
+### StarSystem
 
 * **Description:**
 Stores all the stellar systems in the database.
@@ -138,8 +138,8 @@ Stores all the stellar systems in the database.
 Create a relationship between all celestial bodies in the database, allowing for differences in the location of each one. Certain stars are in one system and certain stars are in another system.
 
 * **Relationships:**
-  - System (0:N) - Star (1:1)
-  - System (0:N) - BrownDwarf (1:1)
+  - StarSystem (0:N) - Star (1:1)
+  - StarSystem (0:N) - BrownDwarf (1:1)
  
 ### PlanetAtmosphere
 
@@ -222,7 +222,7 @@ Neste arquivo está armazenado as convenções utilizadas durante a modelagem do
 
 ## Tabelas
 
-### Planets
+### Planet
 
 * **Descrição:**
 Armazena os planetas que orbitam uma estrela ou anã marrom e seus atributos.
@@ -268,7 +268,7 @@ Definir cada anã marrom como única e permitir a identificação de uma anã ma
   - BrownDwarf (0:N) - Planet (0:N)
   - BrownDwarf (0:N) - Moon (0:1)
   - BrownDwarf (0:N) - Ring (0:N)
-  - BrownDwarf (0:N) - System (0:N)
+  - BrownDwarf (0:N) - StarSystem (0:N)
   - BrownDwarf (0:N) - Star (0:N)
 
 ### Ring
@@ -295,7 +295,7 @@ Permitir que todos os corpos tenham algo para orbitar, ao invés de apenas ficar
 
 * **Relacionamentos:**
 
-  - Star (1:1) - System (0:N)
+  - Star (1:1) - StarSystem (0:N)
   - Star (0:N) - Planet (0:N)
   - Star (0:N) - BrownDwarf (0:N)
   - Star (1:1) - StarType (0:N)
@@ -338,7 +338,7 @@ Permitir ainda mais diferença entre cada planeta e lua, por exemplo: "planeta m
   - BodyType (0:N) - Planet (1:1)
   - BodyType (0:N) - Moon (1:1)
 
-### System
+### StarSystem
 
 * **Descrição:**
 Armazena todos os sitemas estelares do banco de dados.
@@ -348,8 +348,8 @@ Criar um relacionamento entre todos os corpos celestes do banco de dados permiti
 
 * **Relacionamentos:**
 
-  - System (0:N) - Star (1:1)
-  - System (0:N) - BrownDwarf (1:1)
+  - StarSystem (0:N) - Star (1:1)
+  - StarSystem (0:N) - BrownDwarf (1:1)
  
  ### PlanetAtmosphere
 
