@@ -9,14 +9,18 @@ CREATE TABLE dbo.StarType(
 	IdStarType TINYINT IDENTITY (1,1)
 		CONSTRAINT PK_StarType PRIMARY KEY,
 	StarTypeName VARCHAR(50) NOT NULL
-		CONSTRAINT UQ_StarType_StarTypeName UNIQUE);
+		CONSTRAINT UQ_StarType_StarTypeName UNIQUE
+	);
+GO
 		
 CREATE TABLE dbo.StarSystem(
 	IdStarSystem SMALLINT IDENTITY (1,1)
 		CONSTRAINT PK_System PRIMARY KEY,
 	StarSystemName VARCHAR(100) NOT NULL
 --Star systems with the same name do not exist
-		CONSTRAINT UQ_StarSystem_StarSystemName UNIQUE);
+		CONSTRAINT UQ_StarSystem_StarSystemName UNIQUE
+	);
+GO
 
 CREATE TABLE dbo.Star(
 	IdStar SMALLINT IDENTITY (1,1)
@@ -28,7 +32,9 @@ CONSTRAINT FK_Star_IdStarType
 	FOREIGN KEY (IdStarType) REFERENCES dbo.StarType(IdStarType) ON DELETE CASCADE,
 CONSTRAINT FK_Star_IdSystem
 --If a star system no longer exists all stars on it also shouldn't
-	FOREIGN KEY (IdSystem) REFERENCES dbo.StarSystem(IdStarSystem) ON DELETE CASCADE);
+	FOREIGN KEY (IdSystem) REFERENCES dbo.StarSystem(IdStarSystem) ON DELETE CASCADE
+	);
+GO
 	
 CREATE TABLE dbo.BrownDwarf(
 	IdBrownDwarf SMALLINT IDENTITY (1,1)
@@ -37,7 +43,9 @@ CREATE TABLE dbo.BrownDwarf(
 	IsPrimary BIT NOT NULL,
 CONSTRAINT FK_BrownDwarf_IdSystem
 --Same logic than constraint FK_Star_IdSystem
-	FOREIGN KEY (IdSystem) REFERENCES dbo.StarSystem(IdStarSystem) ON DELETE CASCADE);
+	FOREIGN KEY (IdSystem) REFERENCES dbo.StarSystem(IdStarSystem) ON DELETE CASCADE
+	);
+GO
 
 --Trigger necessário
 CREATE TABLE dbo.BrownDwarfStar(
@@ -50,19 +58,25 @@ CONSTRAINT FK_BrowDwarfStar
 	FOREIGN KEY (IdBrownDwarf) REFERENCES dbo.BrownDwarf(IdBrownDwarf) ON DELETE CASCADE,
 CONSTRAINT FK_BrownDwarfStar
 --ON DELETE NO ACTION because ON DELETE CASCADE would cause a delete path multiple error, BrownDwarf and Star table have the same father table, StarSystem table
-	FOREIGN KEY (IdStar) REFERENCES dbo.Star(IdStar) ON DELETE NO ACTION);
+	FOREIGN KEY (IdStar) REFERENCES dbo.Star(IdStar) ON DELETE NO ACTION
+	);
+GO
 	
 CREATE TABLE dbo.BodyType(
 	IdBodyType TINYINT IDENTITY (1,1)
 		CONSTRAINT PK_BodyType PRIMARY KEY,
 	BodyTypeName VARCHAR(50) NOT NULL
-	CONSTRAINT UQ_BodyType_BodyTypeName UNIQUE);
+	CONSTRAINT UQ_BodyType_BodyTypeName UNIQUE
+	);
+GO
 
 CREATE TABLE dbo.Ring(
 	IdRing TINYINT IDENTITY (1,1)
 		CONSTRAINT PK_Ring PRIMARY KEY,
 	RingType VARCHAR(50) NOT NULL 
-		CONSTRAINT UQ_Ring_RingType UNIQUE);
+		CONSTRAINT UQ_Ring_RingType UNIQUE
+	);
+GO
 
 CREATE TABLE dbo.BrownDwarfRing(
 	IdBrownDwarf SMALLINT,
@@ -73,7 +87,9 @@ CONSTRAINT PK_BrownDwarfRing_IdBrownDwarf_IdRing
 CONSTRAINT FK_BrownDwarfRing_IdBrownDwarf
 	FOREIGN KEY (IdBrownDwarf) REFERENCES BrownDwarf(IdBrownDwarf) ON DELETE CASCADE,
 CONSTRAINT FK_BrownDwarfRing_IdRing
-	FOREIGN KEY (IdRing) REFERENCES Ring(IdRing) ON DELETE CASCADE);
+	FOREIGN KEY (IdRing) REFERENCES Ring(IdRing) ON DELETE CASCADE
+	);
+GO
 	
 CREATE TABLE dbo.Planet(
 	IdPlanet INT IDENTITY (1,1)
@@ -90,7 +106,9 @@ CREATE TABLE dbo.Planet(
 	Bio BIT,
 CONSTRAINT FK_Planet_IdBodyType
 --If a body type no longer exists all planets with that body type also shouldn't
-	FOREIGN KEY (IdBodyType) REFERENCES BodyType(IdBodyType) ON DELETE CASCADE);
+	FOREIGN KEY (IdBodyType) REFERENCES BodyType(IdBodyType) ON DELETE CASCADE
+	);
+GO
 	
 --Trigger necessário
 CREATE TABLE dbo.Moon(
@@ -121,7 +139,8 @@ CONSTRAINT CK_Moon_IdPlanet
 		(IdPlanet IS NOT NULL AND IdBrownDwarf IS NULL) OR 
 		(IdPlanet IS NULL AND  IdBrownDwarf  IS NOT NULL)
 		)
-);
+	);
+GO
 
 CREATE TABLE dbo.MoonRing(
 	IdMoon INT,
@@ -134,6 +153,7 @@ CONSTRAINT FK_MoonRing_IdMoon
 CONSTRAINT FK_MoonRing_IdRing
 	FOREIGN KEY (IdRing) REFERENCES Ring(IdRing) ON DELETE CASCADE
 	);
+GO
 	
 CREATE TABLE dbo.PlanetRing(
 	IdPlanet INT,
@@ -145,7 +165,7 @@ CONSTRAINT FK_PlanetRing_IdPlanet
 	FOREIGN KEY (IdPlanet) REFERENCES Planet(IdPlanet) ON DELETE CASCADE,
 CONSTRAINT FK_PlanetRing_IdRing
 	FOREIGN KEY (IdRing) REFERENCES Ring(IdRing) ON DELETE CASCADE
-	);
+GO
 	
 CREATE TABLE dbo.PlanetBrownDwarf(
 	IdBrownDwarf SMALLINT, 
@@ -158,6 +178,7 @@ CONSTRAINT FK_PlanetBrownDwarf_IdBrownDwarf
 CONSTRAINT FK_PlanetBrownDwarf
 	FOREIGN KEY (IdPlanet) REFERENCES Planet(IdPlanet) ON DELETE CASCADE
 	);
+GO
 
 CREATE TABLE dbo.PlanetStar(
 	IdPlanet INT,
@@ -170,6 +191,7 @@ CONSTRAINT FK_PlanetStar_IdPlanet
 CONSTRAINT FK_PlanetStar_IdStar
 	FOREIGN KEY (IdStar) REFERENCES Star(IdStar) ON DELETE CASCADE
 	);
+GO
 
 CREATE TABLE dbo.Atmosphere(
 	IdAtmosphere TINYINT IDENTITY (1,1)
@@ -177,6 +199,7 @@ CREATE TABLE dbo.Atmosphere(
 	AtmosphereName VARCHAR(30) NOT NULL 
 		CONSTRAINT UQ_Atmosphere_AtmosphereName UNIQUE
 	);
+GO
 
 CREATE TABLE dbo.PlanetAtmosphere(
 	IdPlanet INT,
@@ -190,6 +213,7 @@ CONSTRAINT FK_PlanetAtmosphere_IdPlanet
 CONSTRAINT FK_PlanetAtmosphere_IdAtmosphere
 	FOREIGN KEY (IdAtmosphere) REFERENCES Atmosphere(IdAtmosphere) ON DELETE CASCADE,
 	);
+GO
 
 CREATE TABLE dbo.MoonAtmosphere(
 	IdMoon INT,
@@ -203,3 +227,4 @@ CONSTRAINT FK_MoonAtmosphere_IdMoon
 CONSTRAINT FK_MoonAtmosphere_IdAtmosphere
 	FOREIGN KEY (IdAtmosphere) REFERENCES Atmosphere(IdAtmosphere)
 	);
+GO
