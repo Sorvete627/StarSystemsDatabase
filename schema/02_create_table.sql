@@ -1,5 +1,5 @@
 /*
-File: 02-create-table.sql
+File: 02_create_table.sql
 Project: Star Systems Database
 Description: Database's tables creation
 Author: Pedro Henkels
