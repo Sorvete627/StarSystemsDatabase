@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this repository, i keep track of the creation, since data modeling, development and administration of a database, personally developed, about star systems. Sharing all my knowledge and learning about database administration, T-SQL, SQL Server and much more!
+In this repository, i keep track of the creation, since data modeling, development and administration of a database, personally developed, about star systems. Sharing all my knowledge and learning about **database administration, T-SQL, SQL Server** and much more!
 
 ## Goal
 
