@@ -1,6 +1,4 @@
-## English
-
-### Business Rules
+## Business Rules
 
 - A single moon can only orbit a single celestial body. (CHECK necessary)
 - A brown dwarf is not a planet, neither a star or moon.
