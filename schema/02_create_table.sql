@@ -47,7 +47,6 @@ CONSTRAINT FK_BrownDwarf_IdSystem
 	);
 GO
 
---Trigger necessário
 CREATE TABLE dbo.BrownDwarfStar(
 	IdBrownDwarf SMALLINT,
 	IdStar SMALLINT,
@@ -110,7 +109,6 @@ CONSTRAINT FK_Planet_IdBodyType
 	);
 GO
 	
---Trigger necessário
 CREATE TABLE dbo.Moon(
 	IdMoon INT IDENTITY (1,1)
 		CONSTRAINT PK_Moon PRIMARY KEY,
