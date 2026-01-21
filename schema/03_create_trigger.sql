@@ -5,13 +5,13 @@ Description: Trigger's creation code
 Author: Pedro Henkels
 Date: 2026/01/20
 
-Overview
-Each trigger only exists because its respective business rule could not be ensured with constraints or via modeling.
-After Insert, Update triggers were used because the goal is to execute the transaction if it does not violate any business rule and rollback it if it is before it's commited.
-Update events are alo handled because every transaction also need validation when updating the data, not only when creating.
-The logic table Inserted is used to allow the trigger to view the data that is being inserted and validate it.
-IF EXISTS return an error if at least one record is not inside the business rule, allowing multiple line inserts.
-NOCOUNT ON is used to avoid visual pollution, since triggers usually affects multiple lines.
+-Overview
+	Each trigger only exists because its respective business rule could not be ensured with constraints or via modeling.
+	After Insert, Update triggers were used because the goal is to execute the transaction if it does not violate any business rule and rollback it if it is before it's commited.
+	Update events are alo handled because every transaction also need validation when updating the data, not only when creating.
+	The logic table Inserted is used to allow the trigger to view the data that is being inserted and validate it.
+	IF EXISTS return an error if at least one record is not inside the business rule, allowing multiple line inserts.
+	NOCOUNT ON is used to avoid visual pollution, since triggers usually affects multiple lines.
 */
 
 --Ensure business rule in which moon can only orbit a brown dwarf if it is not considered primary.
