@@ -11,6 +11,7 @@ After Insert, Update triggers were used because the goal is to execute the trans
 Update events are alo handled because every transaction also need validation when updating the data, not only when creating.
 The logic table Inserted is used to allow the trigger to view the data that is being inserted and validate it.
 IF EXISTS return an error if at least one record is not inside the business rule, allowing multiple line inserts.
+NOCOUNT ON is used to avoid visual pollution, since triggers usually affects multiple lines.
 */
 
 --Ensure business rule in which moon can only orbit a brown dwarf if it is not considered primary.
@@ -152,6 +153,55 @@ BEGIN
 	BEGIN;
 		THROW 50007,
 			'A planet can only orbit a brown dwarf if it is considered primary.',
+			1;
+	END;
+END;
+GO
+
+/*
+Following two trigger exists to avoid that a planet can be associated to, orbit, a brown dwarf and a star with both being from different systems.
+Since PlanetBrownDwarf and PlanetStar are two independent tables, a INSERT could associate any planet to a star where IdSystem = 1 on table PlanetStar and associate the same planet to a brown dwarf where IdSystem = 2
+*/
+
+CREATE TRIGGER TRG_PlanetStar_AfterInsert_ValidateBrownDwarfSystem
+ON dbo.PlanetStar
+AFTER INSERT, UPDATE
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF EXISTS (SELECT 1 FROM Inserted i
+		JOIN PlanetBrownDwarf pd
+			ON i.IdPlanet = pd.IdPlanet
+		JOIN BrownDwarf bd
+			ON pd.IdBrownDwarf = bd.IdBrownDwarf
+		JOIN Star s
+			ON i.IdStar = s.IdStar
+		WHERE s.IdSystem <> bd.IdSystem)
+	BEGIN;
+		THROW 50008,
+			'A planet can only orbit a star and a brown dwarf if both are from the same system',
+			1;
+	END;
+END;
+GO
+
+CREATE TRIGGER TRG_PlanetBrownDwarf_AfterInsert_ValidateStarSystem
+ON dbo.PlanetBrownDwarf
+AFTER INSERT, UPDATE
+AS
+BEGIN
+	SET NOCOUNT ON;
+	IF EXISTS (SELECT 1 FROM Inserted i
+		JOIN PlanetStar ps
+			ON i.IdPlanet = ps.IdPlanet
+		JOIN Star s
+			ON  ps.IdStar = s.IdStar
+		JOIN BrownDwarf bd
+			ON i.IdBrownDwarf = bd.IdBrownDwarf
+		WHERE s.IdSystem <> bd.IdSystem)
+	BEGIN;
+		THROW 50009,
+			'A planet can only orbit a star and a brown dwarf if both are from the same system',
 			1;
 	END;
 END;
