@@ -6,7 +6,7 @@ In this repository, i keep track of the creation, since data modeling, developme
 
 ## Goal
 
-With this project i expect to show my hard skills in data manipulation and database administration in order to server as a great evaluation to anyone interested in my knowledge.<br>
+With this project i expect to show my hard skills in data manipulation and database administration in order to serve as a great evaluation to anyone interested in my knowledge.<br>
 Being part of my portfolio to enter the database carrers path.
 
 ## Data Stored
