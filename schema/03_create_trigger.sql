@@ -45,6 +45,7 @@ BEGIN
 		JOIN Inserted i
 			ON pa.IdPlanet = i.IdPlanet
 		GROUP BY pa.IdPlanet
+--GROUP BY to SUM Ratio once per planet, not all planet's ratio at once
 		HAVING SUM(pa.Ratio) > 100)
 		BEGIN;
 			THROW 50002,	
@@ -67,6 +68,7 @@ BEGIN
 		JOIN Star s
 			ON i.IdStar = s.IdStar
 		GROUP BY ps.IdPlanet
+--GROUP BY to count distinct IdSystem only once from a specific IdPlanet
 		HAVING COUNT(DISTINCT s.IdSystem) > 1)
 	BEGIN;
 		THROW 50003,
@@ -88,6 +90,7 @@ BEGIN
 			ON pb.IdPlanet = i.IdPlanet
 		JOIN BrownDwarf bd
 			ON pb.IdBrownDwarf = bd.IdBrownDwarf
+--GROUP BY to count distinct IdSystem only once from a specific IdPlanet
 		GROUP BY pb.IdPlanet
 		HAVING COUNT(DISTINCT bd.IdSystem) > 1)
 	BEGIN;
@@ -130,6 +133,7 @@ BEGIN
 		JOIN Star s
 			ON bs.IdStar = s.IdStar
 		GROUP BY bs.IdBrownDwarf
+--GROUP BY to count distinct IdSystem only once from a specific IdBrownDwarf
 		HAVING COUNT(DISTINCT s.IdSystem) > 1)
 	BEGIN;
 		THROW 50006,
