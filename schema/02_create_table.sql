@@ -120,8 +120,8 @@ CREATE TABLE dbo.Moon(
 --Gravity is compared to the earth's one, for example, "this planet has 3,20 more gravity than earth"
 	Gravity DECIMAL(5,2) NOT NULL,
 --BIT to indicate if this moon has geologial and/or biological activity
-	Geo BIT NOT NULL,
-	Bio BIT NOT NULL,
+	Geo BIT,
+	Bio BIT,
 	IdPlanet INT,
 	IdBrownDwarf SMALLINT,
 CONSTRAINT FK_Moon_IdBodyType
