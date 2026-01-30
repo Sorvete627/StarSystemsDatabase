@@ -109,50 +109,6 @@ CONSTRAINT FK_Planet_IdBodyType
 	);
 GO
 	
-CREATE TABLE dbo.Moon(
-	IdMoon INT IDENTITY (1,1)
-		CONSTRAINT PK_Moon PRIMARY KEY,
-	MoonName VARCHAR(100) NOT NULL 
-		CONSTRAINT UQ_Moon_MoonName UNIQUE,
-	IdBodyType TINYINT NOT NULL,
---Defines if a moon is landable or not
-	Landable BIT NOT NULL,
---Gravity is compared to the earth's one, for example, "this planet has 3,20 more gravity than earth"
-	Gravity DECIMAL(5,2) NOT NULL,
---BIT to indicate if this moon has geologial and/or biological activity
-	Geo BIT,
-	Bio BIT,
-	IdPlanet INT,
-	IdBrownDwarf SMALLINT,
-CONSTRAINT FK_Moon_IdBodyType
---If a body type no longer exists all moons with that body type also shouldn't
-	FOREIGN KEY (IdBodyType) REFERENCES BodyType(IdBodyType) ON DELETE CASCADE,
-CONSTRAINT FK_Moon_IdPlanet
-	FOREIGN KEY (IdPlanet) REFERENCES Planet(IdPlanet) ON DELETE CASCADE,
-CONSTRAINT FK_Moon_IdBrownDwarf
-	FOREIGN KEY (IdBrownDwarf) REFERENCES BrownDwarf(IdBrownDwarf) ON DELETE CASCADE,
-CONSTRAINT CK_Moon_IdPlanet 
---A moon can only orbit a planet or a brown dwarf at once
-	CHECK (
-		(IdPlanet IS NOT NULL AND IdBrownDwarf IS NULL) OR 
-		(IdPlanet IS NULL AND  IdBrownDwarf  IS NOT NULL)
-		)
-	);
-GO
-
-CREATE TABLE dbo.MoonRing(
-	IdMoon INT,
-	IdRing TINYINT,
---Only the pair of moon and ring should be unique
-CONSTRAINT PK_MoonRing_IdMoon_IdRing
-	PRIMARY KEY (IdMoon, IdRing),
-CONSTRAINT FK_MoonRing_IdMoon
-	FOREIGN KEY (IdMoon) REFERENCES Moon(IdMoon) ON DELETE CASCADE,
-CONSTRAINT FK_MoonRing_IdRing
-	FOREIGN KEY (IdRing) REFERENCES Ring(IdRing) ON DELETE CASCADE
-	);
-GO
-	
 CREATE TABLE dbo.PlanetRing(
 	IdPlanet INT,
 	IdRing TINYINT,
@@ -210,19 +166,5 @@ CONSTRAINT FK_PlanetAtmosphere_IdPlanet
 	FOREIGN KEY (IdPlanet) REFERENCES Planet(IdPlanet) ON DELETE CASCADE,
 CONSTRAINT FK_PlanetAtmosphere_IdAtmosphere
 	FOREIGN KEY (IdAtmosphere) REFERENCES Atmosphere(IdAtmosphere) ON DELETE CASCADE,
-	);
-GO
-
-CREATE TABLE dbo.MoonAtmosphere(
-	IdMoon INT,
-	IdAtmosphere TINYINT,
-	Ratio DECIMAL (5,2) NOT NULL,
-CONSTRAINT PK_MoonAtmosphere_IdMoon_IdAtmosphere
---Only the pair of moon and atmosphere should be unique
-	PRIMARY KEY (IdMoon, IdAtmosphere),
-CONSTRAINT FK_MoonAtmosphere_IdMoon
-	FOREIGN KEY (IdMoon) REFERENCES Moon(IdMoon),
-CONSTRAINT FK_MoonAtmosphere_IdAtmosphere
-	FOREIGN KEY (IdAtmosphere) REFERENCES Atmosphere(IdAtmosphere)
 	);
 GO
