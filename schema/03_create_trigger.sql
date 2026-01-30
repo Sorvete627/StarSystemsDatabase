@@ -14,26 +14,6 @@ Date: 2026/01/20
 	NOCOUNT ON is used to avoid visual pollution, since triggers usually affects multiple lines.
 */
 
---Ensure business rule in which moon can only orbit a brown dwarf if it is not considered primary.
-CREATE TRIGGER TRG_Moon_AfterInsert_IsBrownDwarfPrimary
-ON dbo.Moon
-AFTER INSERT, UPDATE
-AS
-BEGIN
-	SET NOCOUNT ON;
-	IF EXISTS (
-		SELECT 1 FROM INSERTED i
-		JOIN dbo.BrownDwarf bd
-			ON i.IdBrownDwarf = bd.IdBrownDwarf
-		WHERE bd.IsPrimary = 1)
-	BEGIN;
-		THROW 50001,
-		'A moon can not orbit a brown dwarf if it is not considered primary.',
-		1;
-	END;
-END;
-GO
-
 --Do not allow a total atmosphere of a planet to be more than 100%.
 CREATE TRIGGER TRG_PlanetAtmosphere_AfterInsert_OneHundredPercentAtmosphere
 ON dbo.PlanetAtmosphere
