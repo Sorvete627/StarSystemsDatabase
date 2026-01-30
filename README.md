@@ -16,7 +16,6 @@ The purpose of this database is to store various information about fictional sta
 ## Main tables
 
 - Planet
-- Moon
 - BrownDwarf
 - Star
 - Atmosphere<br>
