@@ -9,9 +9,9 @@ In this repository, i keep track of the creation, since data modeling, developme
 With this project i expect to show my hard skills in data manipulation and database administration in order to serve as a great evaluation to anyone interested in my knowledge.<br>
 Being part of my portfolio to enter the database carrers path.
 
-## Data Stored
+## Data Stored and Data Source
 
-The purpose of this database is to store various information about fictional star systems, from the composition of a celestial body's ring to the types of stars present in each system. The data source is a space simulator called Elite Dangerous, which is why some entities have a high level of detail in the stored data, such as the percentage of each element in a planet's atmosphere.
+The purpose of this database is to store various information about fictional star systems, from the composition of a celestial body's ring to the types of stars present in each system. The data source is an API that exposes information from a space simulator called Elite Dangerous. The goal of this project is not to reproduce astronomy in the most realistic way possible.
 
 ## Main tables
 
