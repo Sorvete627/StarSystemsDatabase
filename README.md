@@ -15,8 +15,8 @@ The purpose of this database is to store various information about fictional sta
 
 ## Main tables
 
-- Planet
-- BrownDwarf
+- Body
+- StarSystem
 - Star
 - Atmosphere<br>
 
