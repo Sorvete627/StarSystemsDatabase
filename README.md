@@ -33,6 +33,6 @@ See [Business Rules](/docs/business-rules.md) for a complete list and technical 
 2. [Create Tables](/schema/02_create_table.sql)
 3. [Create Triggers](/schema/03_create_trigger.sql)
 
-![Entity Relationship Diagram](docs/modeling/erd-image.png)
+![Entity Relationship Diagram](docs/modeling/erdimage.png)
 
 
