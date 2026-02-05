@@ -127,26 +127,6 @@ BEGIN
 END;
 GO
 
---Ensure that a moon can only orbit a single planet.
-CREATE TRIGGER TRG_PlanetMoon_AfterInsertUpdate_MoonOrbitSinglePlanet
-ON dbo.PlanetMoon
-AFTER INSERT, UPDATE
-AS
-BEGIN
-	SET NOCOUNT ON;
-	IF EXISTS(SELECT 1 FROM PlanetMoon pm
-		JOIN Inserted i
-			ON pm.IdMoon = i.IdMoon
-		GROUP BY pm.IdMoon
-		HAVING COUNT(DISTINCT pm.IdPlanet) > 1)
-	BEGIN;
-		THROW 50006,
-			'A moon can only orbit a single planet.',
-			1;
-	END;
-END;
-GO
-
 --Ensures that a moon can orbit a non-primary brown dwarf, but no primary brown dwarf.
 CREATE TRIGGER TRG_BodyBrownDwarf_AfterInsertUpdate_MoonDontOrbitPrimaryBrownDwarfs
 ON dbo.BodyBrownDwarf
