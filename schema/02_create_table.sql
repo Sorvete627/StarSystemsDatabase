@@ -129,7 +129,9 @@ GO
 
 CREATE TABLE dbo.PlanetMoon(
 	IdPlanet INT,
-	IdMoon INT,
+	IdMoon INT
+--A moon shouldn't appear more than one time in this table, since a moon can only orbit a single planet.
+		CONSTRAINT UQ_PlanetMoon_IdMoon UNIQUE,
 CONSTRAINT PK_PlanetMoon_IdPlanet_IdMoon
 	PRIMARY KEY(IdPlanet, IdMoon),
 CONSTRAINT FK_PlanetMoon_IdPlanet
