@@ -86,3 +86,41 @@
 |----------------|-----------|-------------------------------------------------|
 | (PK, FK)IdBody | INT       | FK to create relationship between body and star |
 | (PK, FK)IdStar | SMALLINT  | FK to create relationship between star and body |
+
+## Table: PlanetMoon
+
+|Column           | Type | Description                                                         |
+|-----------------|------|---------------------------------------------------------------------|
+|(PK, FK)IdPlanet | INT  | FK to create relationship between IdBody in Body table and IdPlanet |
+|(PK, FK)IdMoon   | INT  | FK to create relationship between IdBody in Body table and IdMoon   |   
+
+## Table: BrownDwarf
+
+|Column               | Type         | Description                                           |
+|---------------------|--------------|-------------------------------------------------------|
+|(PK)IdBrownDwarf     | SMALLINT     | BrownDwarf unique identifier                          |
+|BrownDwarfName       | VARCHAR(100) | Brown dwarf's name                                    |
+|(FK)IdBrownDwarfType | TINYINT      | FK to define brown dwarf's type                       |
+|(FK)IdStarSystem     | SMALLINT     | FK to define which system the brown dwarf is in       |
+|IsPrimary            | BIT          | Defines if a brown dwarf is considered primary or not |
+
+## Table: BrownDwarfType
+
+|Column               | Type        | Description                         |
+|---------------------|-------------|-------------------------------------|
+|(PK)IdBrownDwarfType | TINYINT     | Brown dwarfs type unique identifier |
+|BrownDwarfTypeName   | VARCHAR(50) | Defines brown dwarf's type          |
+
+## Table: BodyBrownDwarf
+
+|Column               | Type     | Description                                      |
+|---------------------|----------|--------------------------------------------------|
+|(PK, FK)IdBody       | INT      | Creates relationship between Body and BrownDwarf |
+|(PK, FK)IdBrownDwarf | SMALLINT | Creates relationship between BrownDwarf and Body |
+
+## Table BrownDwarfRing
+
+|Column               | Type     | Decription                                       |
+|---------------------|----------|--------------------------------------------------|
+|(PK, FK)IdBrownDwarf | SMALLINT | Creates relationship between BrownDwarf and Ring |
+|(PK, FK)IdRing       | TINYINT  | Creates relationship between Ring and BrownDwarf |
