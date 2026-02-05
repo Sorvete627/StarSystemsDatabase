@@ -25,16 +25,17 @@ A brown dwarf can only have rings if it is cosidered primary.<br>
 
 ### BR-07
 A moon can only orbit a single planet
-**Ensured by:** TRG_PlanetMoon_AfterInsertUpdate_MoonOrbitSinglePlanet
+**Ensured by:** UQ_PlanetMoon_IdMoon
 
 ### BR-08
 Only planet can orbit brown dwarfs considered primary and only moons can orbit brown dwarf not primary.<br>
 **Ensured by:** TRG_BodyBrownDwarf_AfterInsertUpdate_MoonDontOrbitPrimaryBrownDwarfs and TRG_BodyBrownDwarf_AfterInsertUpdate_SameSystemPrimaryBrownDwarfs
 
 ### BR-09
-Only primary brown dwarfs can have rings.<br>
+Only non-primary brown dwarfs can have rings.<br>
+**Ensured by:** TRG_BrownDwarfRing_AfterInsertUpdate_PrimaryBrownDwarfRing
 
 ### BR-10
 A atmosphere element can not be present twice in the same planet. It would allow data redundancy and inconsistency.<br>
-**Ensured by:** PK_PlanetAtmosphere_IdPlanet_IdAtmosphere<br>
+**Ensured by:** PK_BodyAtmosphere_IdBody_IdAtmosphere<br>
 Note: this pattern is present in every composite primary key in the database
