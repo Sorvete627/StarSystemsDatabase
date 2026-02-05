@@ -184,5 +184,5 @@ CONSTRAINT PK_BrownDwarfRing_IdBrownDwarf_IdRing
 CONSTRAINT FK_BrownDwarfRing_IdBrownDwarf
 	FOREIGN KEY (IdBrownDwarf) REFERENCES BrownDwarf(IdBrownDwarf) ON DELETE CASCADE,
 CONSTRAINT FK_BrownDwarfRing_IdRing
---A entire brown dwarf shouldn't no longer exists if it's ring type is deleted
+--A entire brown dwarf shouldn't no longer exists if it's ring type is deleted.
 	FOREIGN KEY (IdRing) REFERENCES Ring(IdRing) ON DELETE NO ACTION);
