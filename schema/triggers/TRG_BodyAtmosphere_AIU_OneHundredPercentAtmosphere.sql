@@ -2,7 +2,7 @@
 File: TRG_BodyAtmosphere_AIU_OneHundredPercentAtmosphere.sql
 Object: TRG_BodyAtmosphere_AIU_OneHundredPercentAtmosphere
 Author: Pedro Henkels
-Date: 2026/01/20
+Date: 2026/02/09
 
 Description:
 Do not allow a total atmosphere of a body to be more than 100%.
