@@ -35,9 +35,9 @@ See [Business Rules](/docs/business-rules.md) for a complete list and technical 
 
 ## How to run
 
-1. [Create Database](/schema/01_create_database.sql)
-2. [Create Tables](/schema/02_create_table.sql)
-3. [Create Triggers](/schema/03_create_trigger.sql)
+1. [Create Database](/schema/create_database.sql)
+2. [Create Tables](/schema/create_table.sql)
+3. [Create Triggers](/schema/triggers)
 
 ![Entity Relationship Diagram](docs/modeling/erd-image.png)
 
