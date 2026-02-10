@@ -1,6 +1,6 @@
 /*
 File: bodystar.sql
-Objetc dbo.BodyStar
+Objetct: dbo.BodyStar
 Author: Pedro Henkels
 Date: 2026/01/08
 */
