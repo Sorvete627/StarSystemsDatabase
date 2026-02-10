@@ -1,6 +1,6 @@
 /*
 File: browndwarftype.sql
-Objetc dbo.BrownDwarfType
+Objetct: dbo.BrownDwarfType
 Author: Pedro Henkels
 Date: 2026/01/08
 */
