@@ -1,6 +1,6 @@
 /*
 File: bodyring.sql
-Objetc dbo.BodyRing
+Objetct: dbo.BodyRing
 Author: Pedro Henkels
 Date: 2026/01/08
 */
