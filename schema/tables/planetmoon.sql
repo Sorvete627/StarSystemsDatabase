@@ -1,6 +1,6 @@
 /*
 File: planetmoon.sql
-Objetc dbo.PlanetMoon
+Objetct: dbo.PlanetMoon
 Author: Pedro Henkels
 Date: 2026/01/08
 */
