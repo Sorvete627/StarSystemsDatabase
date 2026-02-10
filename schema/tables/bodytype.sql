@@ -1,6 +1,6 @@
 /*
 File: bodytype.sql
-Objetc dbo.BodyType
+Objetct: dbo.BodyType
 Author: Pedro Henkels
 Date: 2026/01/08
 */
