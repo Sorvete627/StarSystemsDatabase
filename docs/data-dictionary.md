@@ -26,7 +26,6 @@
 | StarName       | VARCHAR(100) | Star name                                             |
 | (FK)IdStarType | TINYINT      | FK to define star's type                              |
 | (FK)IdSystem   | SMALLINT     | FK to define which system the star is in              |
-| IsPrimary      | BIT          | Define whether a star has its own orbit in the system | 
 
 ## Table: StarType
 
