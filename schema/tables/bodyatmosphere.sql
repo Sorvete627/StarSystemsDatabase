@@ -1,6 +1,6 @@
 /*
 File: bodyatmosphere.sql
-Objetc dbo.BodyAtmosphere
+Objetct: dbo.BodyAtmosphere
 Author: Pedro Henkels
 Date: 2026/01/08
 */
