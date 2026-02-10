@@ -1,6 +1,6 @@
 /*
 File: starsystem.sql
-Objetc dbo.StarSystem
+Objetct: dbo.StarSystem
 Author: Pedro Henkels
 Date: 2026/01/08
 */
