@@ -1,6 +1,6 @@
 /*
 File: startype.sql
-Objetc dbo.StarType
+Objetct: dbo.StarType
 Author: Pedro Henkels
 Date: 2026/01/08
 */
