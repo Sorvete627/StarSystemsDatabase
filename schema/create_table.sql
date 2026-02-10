@@ -27,7 +27,6 @@ CREATE TABLE dbo.Star(
 		CONSTRAINT UQ_Star_StarName UNIQUE,
 	IdStarType TINYINT NOT NULL,
 	IdSystem SMALLINT NOT NULL,
-	IsPrimary BIT NOT NULL
 CONSTRAINT FK_Star_IdStarType
 --If a star type no longer exists every star with that type also shouldn't
 	FOREIGN KEY (IdStarType) REFERENCES StarType(IdStarType) ON DELETE CASCADE,
