@@ -1,6 +1,6 @@
 /*
 File: star.sql
-Objetc dbo.Star
+Objetct: dbo.Star
 Author: Pedro Henkels
 Date: 2026/01/08
 */
