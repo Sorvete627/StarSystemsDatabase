@@ -1,6 +1,6 @@
 /*
 File: bodysubtype.sql
-Objetc dbo.BodySubType
+Objetct: dbo.BodySubType
 Author: Pedro Henkels
 Date: 2026/01/08
 */
