@@ -1,6 +1,6 @@
 /*
 File: bodybrowndwarf.sql
-Objetc dbo.BodyBrownDwarf
+Objetct: dbo.BodyBrownDwarf
 Author: Pedro Henkels
 Date: 2026/01/08
 */
