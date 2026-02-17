@@ -38,6 +38,7 @@ See [Business Rules](/docs/business-rules.md) for a complete list and technical 
 1. [Create Database](/schema/create_database.sql)
 2. [Create Tables](/schema/tables)
 3. [Create Triggers](/schema/triggers)
+4. Insert data [here](/data/manual-seed) and [here](/data/api-seed)
 
 ![Entity Relationship Diagram](docs/modeling/erd-image.png)
 
