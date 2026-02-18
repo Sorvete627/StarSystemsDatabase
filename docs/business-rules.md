@@ -16,8 +16,8 @@ A planet can only orbit two or more stars if all are from the same system.<br>
 **Ensured by:** TRG_PlanetStar_AfterInsert_SameSystemStars
 
 ### BR-05
-A planet can only orbit two or more brown dwarf if all are from the same system and are considered primary.<br>
-**Ensured by:** TRG_BodyBrownDwarf_AfterInsertUpdate_SameSystemPrimaryBrownDwarfs
+A planet can only orbit two or more brown dwarf if all are from the same system.<br>
+**Ensured by:** TRG_BodyBrownDwarf_AfterInsertUpdate_SameSystemBrownDwarfs
 
 ### BR-06
 A brown dwarf can only have rings if it is cosidered primary.<br>
@@ -25,11 +25,11 @@ A brown dwarf can only have rings if it is cosidered primary.<br>
 
 ### BR-07
 A moon can only orbit a single planet
-**Ensured by:** UQ_PlanetMoon_IdMoon
+**Ensured by:** PK_PlanetMoon
 
 ### BR-08
-Only planet can orbit brown dwarfs considered primary and only moons can orbit brown dwarf not primary.<br>
-**Ensured by:** TRG_BodyBrownDwarf_AfterInsertUpdate_MoonDontOrbitPrimaryBrownDwarfs and TRG_BodyBrownDwarf_AfterInsertUpdate_SameSystemPrimaryBrownDwarfs
+Only planet can orbit brown dwarfs, moons cannot.<br>
+**Ensured by:** TRG_BodyBrownDwarf_AfterInsertUpdate_MoonDontOrbitBrownDwarfs
 
 ### BR-09
 Only non-primary brown dwarfs can have rings.<br>
