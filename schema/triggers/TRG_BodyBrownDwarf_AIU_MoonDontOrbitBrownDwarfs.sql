@@ -5,10 +5,10 @@ Author: Pedro Henkels
 Date: 2026/02/09
 
 Description:
-Ensures that a moon can orbit a non-primary brown dwarf, but no primary brown dwarf.
+Ensures that a moon cannot orbit brown dwarfs.
 */
 
-CREATE TRIGGER TRG_BodyBrownDwarf_AfterInsertUpdate_MoonDontOrbitPrimaryBrownDwarfs
+CREATE TRIGGER TRG_BodyBrownDwarf_AfterInsertUpdate_MoonDontOrbitBrownDwarfs
 ON dbo.BodyBrownDwarf
 AFTER INSERT, UPDATE
 AS
@@ -17,14 +17,12 @@ BEGIN
 	IF EXISTS(SELECT 1 FROM Inserted i
 		JOIN Body b
 			ON i.IdBody = b.IdBody
-		JOIN BrownDwarf bd
-			ON i.IdBrownDwarf =  bd.IdBrownDwarf
 		JOIN BodyType bt
 			ON b.IdBodyType = bt.IdBodyType
-		WHERE bt.IdBodyType = 2 AND bd.IsPrimary = 1)
+		WHERE bt.IdBodyType = 2)
 	BEGIN;
 		THROW 50007,
-		 'A moon can not orbit a primary brown dwarf.',
+		 'A moon can not orbit a brown dwarf, only planets.',
 		 1;
 	END;
 END;
