@@ -5,11 +5,10 @@ Author: Pedro Henkels
 Date: 2026/02/09
 
 Description:
-Ensures that a planet will only orbit primary brown dwarfs that are in the same star system.
-Planets cannot orbit non-primary brown dwarfs.
+Ensures that a planet will only orbit brown dwarfs that are in the same star system.
 */
 
-CREATE TRIGGER TRG_BodyBrownDwarf_AfterInsertUpdate_SameSystemPrimaryBrownDwarfs
+CREATE TRIGGER TRG_BodyBrownDwarf_AIU_SameSystemBrownDwarfs
 ON dbo.BodyBrownDwarf
 AFTER INSERT, UPDATE
 AS
@@ -27,14 +26,6 @@ BEGIN
 			'A planet can only orbit two or more brown dwarfs if all are from the same star system.',
 			1;
 	END;
-	IF EXISTS(SELECT 1 FROM Inserted i
-		JOIN BrownDwarf bd
-			ON i.IdBrownDwarf = bd.IdBrownDwarf
-		WHERE bd.IsPrimary = 0)
-	BEGIN;
-		THROW 50004,
-			'A planet can only orbit brown dwarfs considered as primary.',
-			1;
-	END;
 END;
 GO
+
